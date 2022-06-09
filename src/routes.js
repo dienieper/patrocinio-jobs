@@ -1,9 +1,10 @@
 import { Router } from "express";
+import CreateVacancyController from "./app/controllers/CreateVacancyController";
 
 const routes = Router();
 
-routes.get("/", (req, res) => {
-  return res.json({ ken: "ok" });
-});
+const createVacancyController = new CreateVacancyController();
+
+routes.get("/", createVacancyController.execute);
 
 export default routes;
